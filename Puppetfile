@@ -42,6 +42,8 @@ mod 'puppetlabs-distelli_agent', '0.1.0'
 mod 'maestrodev-wget', '1.7.3'
 
 # Forge Community Modules
+mod 'rfletcher-jq', '0.0.2'
+mod 'maestrodev-wget', '1.7.3'
 mod 'WhatsARanjit-puppeteer', '0.1.8'
 mod 'jfryman-selinux', '0.4.0'
 mod 'ghoneycutt-ssh', '3.52.0'
