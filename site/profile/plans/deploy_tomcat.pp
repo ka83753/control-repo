@@ -9,7 +9,7 @@ plan profile::deploy_tomcat (
   # name, version, group
   $details = profile::loaddata('app.yaml')
 
-  run_task('profile:get_gavc', $app_servers,
+  run_task('profile::get_gavc', $app_servers,
     artifactid        => $details['name'],
     version           => $details['version'],
     group             => $details['group'],
