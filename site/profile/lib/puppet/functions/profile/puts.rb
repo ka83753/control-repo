@@ -5,6 +5,6 @@ Puppet::Functions.create_function(:'profile::puts') do
 
   def pts(msg)
     time = Time.new
-    puts "#{time.inspect}: #{msg}"
+    puts "#{time.inspect}: NOTICE #{msg}"
   end
 end
