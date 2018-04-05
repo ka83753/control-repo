@@ -1,6 +1,6 @@
 # Setup a new Tomcat Webhead and add to LB; no app deployed here
 class profile::app::java_webapp::webhead (
-  $app_env = pick($::app_env, 'dev')
+  $app_env = pick($::java_webapp, 'dev')
 ) {
 
   if $::kernel != 'Linux' {
