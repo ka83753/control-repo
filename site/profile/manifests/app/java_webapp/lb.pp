@@ -20,8 +20,8 @@ class profile::app::java_webapp::lb (
     mode      => 'http',
     options   => {
       'use_backend' => [
-        "dev_bk if { hdr(Host) -i ${dev_hostname} }",
-        "prod_bk if { hdr(Host) -i ${prod_hostname} }",
+        "dev_java_webapp_bk if { hdr(Host) -i ${dev_hostname} }",
+        "prod_java_webapp_bk if { hdr(Host) -i ${prod_hostname} }",
       ],
     },
   }
