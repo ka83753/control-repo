@@ -40,7 +40,7 @@ begin
     open(deploy_location, 'wb') do |file|
       file.write(httpcall(meta['downloadUri'], token))
     end
-    result['result'] = { success: true }
+    result['details'] = { success: true }
   end
 rescue => e
   result[:_error] = { "msg" => e.message }
