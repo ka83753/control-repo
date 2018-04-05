@@ -28,7 +28,7 @@ plan profile::deploy_tomcat (
       fail("\tCouldn't drain connections from member ${backend}:${a}!")
     }
 
-    if run_task('profile::get_gavc', $app_servers,
+    if run_task('profile::get_gavc', $a,
       artifactid        => $details['name'],
       version           => $details['version'],
       group             => $details['group'],
