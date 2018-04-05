@@ -1,0 +1,35 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Retrieve artifact from Artifactory using GAVC",
+  "parameters": {
+     "artifactid": {
+       "description": "The artifactid to retrieve",
+       "type": "String[1]"
+     },
+     "version": {
+       "description": "The artifact version used for Artifactory auth",
+       "type": "String[1]"
+     },
+     "group": {
+       "description": "The artifact group used for Artifactory GAVC search",
+       "type": "String[1]"
+     },
+     "repository": {
+       "description": "The artifact repository used for Artifactory GAVC search",
+       "type": "String[1]"
+     },
+     "deploy_location": {
+       "description": "Destination location to place artifact on system",
+       "type": "String[1]"
+     },
+     "artifactory_host": {
+       "description": "The hostname Artifactory is accessible from",
+       "type": "String[1]"
+     },
+     "apitoken": {
+       "description": "The API token used for artifactory",
+       "type": "String[1]"
+     }
+  }
+}
