@@ -35,7 +35,7 @@ plan profile::deploy_tomcat (
       repository        => $repository,
       deploy_location   => $deploy_location,
       artifactory_host  => $artifactory_base,
-      apitoken          => Sensitive($token)
+      apitoken          => $token
     ).ok() == true {
       profile::puts("\tSuccessfully deployed ${details['name']} version ${details['version']} on host ${a}!")
     } else {
