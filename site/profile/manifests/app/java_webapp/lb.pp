@@ -1,6 +1,7 @@
 # Setup a new HA proxy instance for java webapp
 class profile::app::java_webapp::lb (
   $dev_hostname  = 'dev-java-app.puppet.vm',
+  $qa_hostname  = 'qa-java-app.puppet.vm',
   $prod_hostname = 'prod-java-app.puppet.vm',
 ){
 
@@ -10,6 +11,7 @@ class profile::app::java_webapp::lb (
     ensure   => 'present',
     mappings => [
       { $dev_hostname  => 'dev_java_webapp_bk' },
+      { $qa_hostname   => 'qa_java_webapp_bk' },
       { $prod_hostname => 'prod_java_webapp_bk' },
     ],
   }
@@ -21,12 +23,23 @@ class profile::app::java_webapp::lb (
     options   => {
       'use_backend' => [
         "dev_java_webapp_bk if { hdr(Host) -i ${dev_hostname} }",
+        "qa_java_webapp_bk if { hdr(Host) -i ${qa_hostname} }",
         "prod_java_webapp_bk if { hdr(Host) -i ${prod_hostname} }",
       ],
     },
   }
 
   haproxy::backend { 'dev_java_webapp_bk':
+    mode    => 'http',
+    options => {
+      'option'  => [
+        'tcplog',
+      ],
+      'balance' => 'roundrobin',
+    },
+  }
+
+  haproxy::backend { 'qa_java_webapp_bk':
     mode    => 'http',
     options => {
       'option'  => [
@@ -47,6 +60,7 @@ class profile::app::java_webapp::lb (
   }
 
   Haproxy::Balancermember <<| listening_service == 'dev_java_webapp_bk' |>>
+  Haproxy::Balancermember <<| listening_service == 'qa_java_webapp_bk' |>>
   Haproxy::Balancermember <<| listening_service == 'prod_java_webapp_bk' |>>
 
   firewall { '111 allow http 80 access':
