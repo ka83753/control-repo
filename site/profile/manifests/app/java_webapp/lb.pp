@@ -26,7 +26,7 @@ class profile::app::java_webapp::lb (
     },
   }
 
-  haproxy::backend { 'dev_bk':
+  haproxy::backend { 'dev_java_webapp_bk':
     mode    => 'http',
     options => {
       'option'  => [
@@ -36,7 +36,7 @@ class profile::app::java_webapp::lb (
     },
   }
 
-  haproxy::backend { 'prod_bk':
+  haproxy::backend { 'prod_java_webapp_bk':
     mode    => 'http',
     options => {
       'option'  => [
