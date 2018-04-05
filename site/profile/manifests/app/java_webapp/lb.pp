@@ -9,8 +9,8 @@ class profile::app::java_webapp::lb (
   haproxy::mapfile { 'domains-to-backends':
     ensure   => 'present',
     mappings => [
-      { $dev_hostname  => 'dev_bk' },
-      { $prod_hostname => 'prod_bk' },
+      { $dev_hostname  => 'dev_java_webapp_bk' },
+      { $prod_hostname => 'prod_java_webapp_bk' },
     ],
   }
 
