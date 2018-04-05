@@ -7,7 +7,7 @@ class profile::app::java_webapp::webhead (
     fail('Unsupported OS')
   }
 
-  class {'::profile::app::puppet_tomcat::linux':
+  class {'::profile::app::puppet_tomcat':
     deploy_sample_app => false,
   }
 
