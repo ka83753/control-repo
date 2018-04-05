@@ -66,6 +66,7 @@ plan profile::deploy_tomcat (
       fail("\tFailed to re-add ${a} to backend ${backend}!")
     }
 
-}
+  }
 
-profile::puts("Successfully completed rolling deployment on app servers $app_servers...")
+  profile::puts("Successfully completed rolling deployment on app servers $app_servers...")
+}
