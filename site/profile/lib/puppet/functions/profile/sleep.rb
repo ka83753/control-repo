@@ -5,7 +5,7 @@ Puppet::Functions.create_function(:'profile::sleep') do
 
   def chill(seconds)
     time = Time.new
-    puts "#{time.inspect}: Sleeping for #{seconds} seconds..."
+    puts "#{time.inspect}: NOTICE Sleeping for #{seconds} seconds..."
     sleep(seconds)
   end
 end
