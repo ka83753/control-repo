@@ -39,7 +39,6 @@ mod 'puppetlabs-facter_task', '0.1.3'
 mod 'puppetlabs-docker', '1.0.1'
 mod 'puppetlabs-transition', '0.1.1'
 mod 'puppetlabs-distelli_agent', '0.1.0'
-mod 'maestrodev-wget', '1.7.3'
 
 # Forge Community Modules
 mod 'rfletcher-jq', '0.0.2'
