@@ -7,9 +7,7 @@ class profile::app::java_webapp::webhead (
     fail('Unsupported OS')
   }
 
-  class {'::profile::app::puppet_tomcat':
-    deploy_sample_app => false,
-  }
+  include ::profile::app::puppet_tomcat
 
 
   @@haproxy::balancermember { "haproxy-java_webapp-${::fqdn}":
