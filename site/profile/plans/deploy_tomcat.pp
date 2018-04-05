@@ -9,7 +9,7 @@ plan profile::deploy_tomcat (
 ){
 
   # name, version, group
-  $details = profile::loaddata('app.yaml')
+  $details = profile::loaddata('/var/tmp/app.yaml')
 
   profile::puts("Starting rolling deployment on app servers $app_servers...")
 
