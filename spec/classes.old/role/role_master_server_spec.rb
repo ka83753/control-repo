@@ -1,14 +1,16 @@
 require 'spec_helper'
 
-describe 'profile::app::pipelines::agent' do
+describe 'role::master_server' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts
         end
 
-        facts[:os][:architecture] = 'amd64'
+        let(:pre_condition) {'
+          service {"pe-puppetserver": ensure => running }
+        '}
 
         if Gem.win_platform?
           context "unsupported OS" do

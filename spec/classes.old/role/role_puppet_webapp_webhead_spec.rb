@@ -1,20 +1,14 @@
 require 'spec_helper'
 
-describe 'role::rgbank_standalone' do
+describe 'role::puppet_webapp::webhead' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts
         end
 
-        before(:each) do
-          Puppet::Parser::Functions.newfunction(:puppetdb_query, :type => :rvalue) do |args|
-            [{'facts'=>{'fqdn'=> 'testserver'}}]
-          end
-        end
-
-        if facts[:osfamily] != 'RedHat'
+        if Gem.win_platform?
           context "unsupported OS" do
             it { is_expected.to compile.and_raise_error(/Unsupported OS/)  }
           end

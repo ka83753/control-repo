@@ -1,16 +1,12 @@
 require 'spec_helper'
 
-describe 'role::master_server' do
+describe 'profile::app::docker' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts
         end
-
-        let(:pre_condition) {'
-          service {"pe-puppetserver": ensure => running }
-        '}
 
         if Gem.win_platform?
           context "unsupported OS" do

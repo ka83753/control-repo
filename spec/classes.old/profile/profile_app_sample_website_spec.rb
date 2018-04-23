@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'profile::platform::baseline_hipaa' do
+describe 'profile::app::sample_website' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts

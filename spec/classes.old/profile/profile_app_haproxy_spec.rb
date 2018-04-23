@@ -1,28 +1,25 @@
 require 'spec_helper'
 
-describe 'profile::puppet::master' do
-    SUPPORTED_OS.each do |os, facts|
+describe 'profile::app::haproxy' do
+
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts
         end
 
-        let(:pre_condition) {'
-          service { "pe-puppetserver":
-            ensure     => "running",
-          }
-        '}
-
-        if facts[:kernel] != 'Linux'
+        if Gem.win_platform?
           context "unsupported OS" do
             it { is_expected.to compile.and_raise_error(/Unsupported OS/)  }
           end
         else
           context "without any parameters" do
-            it { is_expected.to compile }
+            it { is_expected.to compile.with_all_deps }
           end
         end
 
+
       end
     end
+
 end

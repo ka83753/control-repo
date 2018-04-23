@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'role::puppet_tomcat' do
+describe 'profile::platform::baseline_hipaa' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts

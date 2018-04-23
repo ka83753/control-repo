@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'profile::app::entropy' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts

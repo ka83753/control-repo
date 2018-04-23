@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'profile::app::sample_website' do
+describe 'profile::puppet::orch_agent' do
 
-    SUPPORTED_OS.each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts
