@@ -27,6 +27,7 @@ group :development, :unit_tests do
   gem 'puppet-syntax', '>= 2.4.0'
   gem 'parallel_tests'
   gem 'json_pure', '<= 2.0.1' if RUBY_VERSION < '2.0.0'
+  gem 'onceover'
 end
 
 
