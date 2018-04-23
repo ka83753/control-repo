@@ -27,7 +27,7 @@ group :development, :unit_tests do
                       :ref => 'eaba657a8e876c8c4a881a6d47df76cfdda62b3f'
   gem 'puppet-syntax', '>= 2.4.0'
   gem 'parallel_tests'
-  mod 'json',
+  gem 'json'
   gem 'onceover'
   gem 'hiera-eyaml'
 end
