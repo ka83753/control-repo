@@ -14,6 +14,7 @@ gem 'rubocop-rspec'
 gem 'rest-client'
 gem 'facter', '2.4.6'
 gem 'r10k', '>= 2.5.5'
+gem 'rake'
 
 group :development, :unit_tests do
   gem 'metadata-json-lint'
@@ -29,14 +30,5 @@ group :development, :unit_tests do
   gem 'json_pure', '<= 2.0.1' if RUBY_VERSION < '2.0.0'
   gem 'onceover'
   gem 'hiera-eyaml'
-end
-
-
-group :system_tests do
-  gem 'beaker', '>= 3.16.0'
-  gem 'beaker-rspec'
-  gem 'serverspec'
-  gem 'beaker-puppet_install_helper'
-  gem 'master_manipulator'
 end
 

@@ -557,6 +557,7 @@ DEPENDENCIES
   puppetlabs_spec_helper
   r10k (>= 2.5.5)
   ra10ke
+  rake
   rest-client
   rspec-puppet!
   rspec-puppet-facts!
