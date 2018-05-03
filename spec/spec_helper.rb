@@ -68,6 +68,7 @@ RSpec.configure do |c|
   c.color     = true
   c.manifest_dir    = File.join(base_dir, 'fixtures', 'modules', 'manifests')
   c.manifest        = File.join(base_dir, 'fixtures', 'modules', 'manifests', 'site.pp')
+  c.mock_with :rspec
 end
 
 

@@ -1,0 +1,651 @@
+{
+  "name": "ubuntu1404b.pdx.puppet.vm",
+  "values": {
+    "aio_agent_build": "5.5.1",
+    "aio_agent_version": "5.5.1",
+    "apt_has_updates": true,
+    "apt_package_updates": [
+      "base-files",
+      "bash",
+      "coreutils",
+      "dpkg",
+      "login",
+      "mount",
+      "perl",
+      "perl-base",
+      "perl-modules",
+      "libc-bin",
+      "libc6",
+      "libdb5.3",
+      "tar",
+      "lsb-base",
+      "tzdata",
+      "sysvinit-utils",
+      "sysv-rc",
+      "util-linux",
+      "gcc-4.8-base",
+      "libstdc++6",
+      "libapt-pkg4.12",
+      "gpgv",
+      "gnupg",
+      "apt",
+      "bsdutils",
+      "libpam0g",
+      "libpam-modules-bin",
+      "libpam-modules",
+      "passwd",
+      "libuuid1",
+      "libblkid1",
+      "libmount1",
+      "libpcre3",
+      "libapt-inst1.5",
+      "libexpat1",
+      "libffi6",
+      "libgcrypt11",
+      "libtasn1-6",
+      "libgnutls-openssl27",
+      "libgnutls26",
+      "python3.4",
+      "python3.4-minimal",
+      "libpython3.4-stdlib",
+      "libssl1.0.0",
+      "libpython3.4-minimal",
+      "ntpdate",
+      "initscripts",
+      "resolvconf",
+      "libdbus-1-3",
+      "libdrm2",
+      "udev",
+      "libudev1",
+      "bash-completion",
+      "libroken18-heimdal",
+      "libasn1-8-heimdal",
+      "libk5crypto3",
+      "libgssapi-krb5-2",
+      "libkrb5-3",
+      "libkrb5support0",
+      "libidn11",
+      "libhcrypto4-heimdal",
+      "libheimbase1-heimdal",
+      "libwind0-heimdal",
+      "libhx509-5-heimdal",
+      "libkrb5-26-heimdal",
+      "libheimntlm0-heimdal",
+      "libgssapi3-heimdal",
+      "libldap-2.4-2",
+      "librtmp0",
+      "libcurl3-gnutls",
+      "libnuma1",
+      "libpam-systemd",
+      "systemd-services",
+      "libsystemd-daemon0",
+      "libapparmor1",
+      "libsystemd-login0",
+      "dbus",
+      "libpam-runtime",
+      "pciutils",
+      "libpci3",
+      "libxml2",
+      "curl",
+      "libcurl3",
+      "libevent-2.0-5",
+      "libfreetype6",
+      "libgc1c2",
+      "libicu52",
+      "python2.7",
+      "libpython2.7",
+      "libpython2.7-stdlib",
+      "python2.7-minimal",
+      "libpython2.7-minimal",
+      "patch",
+      "lsb-release",
+      "ubuntu-release-upgrader-core",
+      "python3-distupgrade",
+      "update-manager-core",
+      "python3-update-manager",
+      "update-notifier-common",
+      "multiarch-support",
+      "sensible-utils",
+      "apt-utils",
+      "eject",
+      "init-system-helpers",
+      "iproute2",
+      "ifupdown",
+      "isc-dhcp-client",
+      "isc-dhcp-common",
+      "logrotate",
+      "rsyslog",
+      "sudo",
+      "vim",
+      "vim-tiny",
+      "vim-runtime",
+      "vim-common",
+      "cpio",
+      "klibc-utils",
+      "libklibc",
+      "initramfs-tools",
+      "initramfs-tools-bin",
+      "makedev",
+      "accountsservice",
+      "libaccountsservice0",
+      "libapparmor-perl",
+      "apparmor",
+      "bind9-host",
+      "dnsutils",
+      "libisc95",
+      "libdns100",
+      "libisccc90",
+      "libisccfg90",
+      "liblwres90",
+      "libbind9-90",
+      "openssl",
+      "ca-certificates",
+      "dosfstools",
+      "krb5-locales",
+      "lshw",
+      "openssh-sftp-server",
+      "openssh-server",
+      "openssh-client",
+      "rsync",
+      "tcpdump",
+      "usbutils",
+      "uuid-runtime",
+      "wget",
+      "grub-pc",
+      "grub-pc-bin",
+      "grub2-common",
+      "grub-common",
+      "python3-problem-report",
+      "python3-apport",
+      "apport",
+      "python-twisted-bin",
+      "python-twisted-core",
+      "python-twisted-web",
+      "landscape-client",
+      "landscape-common",
+      "pollinate",
+      "python-twisted-names",
+      "software-properties-common",
+      "unattended-upgrades",
+      "python3-software-properties",
+      "w3m",
+      "cloud-guest-utils",
+      "cloud-init",
+      "grub-legacy-ec2",
+      "open-vm-tools",
+      "overlayroot"
+    ],
+    "apt_reboot_required": false,
+    "apt_security_updates": 0,
+    "apt_update_last_success": 1525329096,
+    "apt_updates": 169,
+    "architecture": "amd64",
+    "augeas": {
+      "version": "1.10.1"
+    },
+    "augeasversion": "1.10.1",
+    "bios_release_date": "04/01/2014",
+    "bios_vendor": "SeaBIOS",
+    "bios_version": "1.9.1-5.el7",
+    "blockdevice_vda_size": 17179869184,
+    "blockdevice_vda_vendor": "0x1af4",
+    "blockdevices": "vda",
+    "chassistype": "Other",
+    "datacenter": "portland",
+    "dhcp_servers": {
+      "eth0": "192.168.0.1",
+      "system": "192.168.0.1"
+    },
+    "disks": {
+      "vda": {
+        "size": "16.00 GiB",
+        "size_bytes": 17179869184,
+        "vendor": "0x1af4"
+      }
+    },
+    "dmi": {
+      "bios": {
+        "release_date": "04/01/2014",
+        "vendor": "SeaBIOS",
+        "version": "1.9.1-5.el7"
+      },
+      "chassis": {
+        "type": "Other"
+      },
+      "manufacturer": "Fedora Project",
+      "product": {
+        "name": "OpenStack Nova",
+        "serial_number": "f86cd51d-fa21-413f-beaa-334f66a8afc9",
+        "uuid": "FE05B688-675F-435B-A2E2-F5F732994F3C"
+      }
+    },
+    "domain": "pdx.puppet.vm",
+    "ec2_metadata": {
+      "ami-id": "ami-00000016",
+      "ami-launch-index": "0",
+      "ami-manifest-path": "FIXME",
+      "block-device-mapping": {
+        "ami": "vda",
+        "root": "/dev/vda"
+      },
+      "hostname": "ubuntu1404b.pdx.puppet.vm",
+      "instance-action": "none",
+      "instance-id": "i-0021dca0",
+      "instance-type": "g1.medium",
+      "local-hostname": "ubuntu1404b.pdx.puppet.vm",
+      "local-ipv4": "192.168.0.88",
+      "placement": {
+        "availability-zone": "opdx1"
+      },
+      "public-hostname": "ubuntu1404b.pdx.puppet.vm",
+      "public-ipv4": "10.32.160.119",
+      "public-keys": {
+        "0": {
+          "openssh-key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCp5lB5Elq5zcesDgdtZvjvFO4BxhlK84Bmj0OlI4Vm6Tih2cf6fj9W/8Ert6xatvBO4N0H1KFdAOq7vjaBY/Hl3GMV81q1yiNE9Tss3oAJecHlmgnIK5MWv/UkBikd8r88ml65upxSb/ki3oKCqUmLQd8FujxZGVlchhEQV7nnL+GkVpRjXWf27Z3sG8yP/PAX74H5Nz0xqayZbzJPQxFEK8jWE1zDJbsRQXsiW0Z7vBC7P1Dbd+KfV4++NcnojgKYv8eMysKfnrNMZ0u5tt6YpikjUBv6YKQM/00adWRpYX1BQStKKGGsrcuiBGpnXkHAIA9IPt1UekuZH4LHWmUb mcadorette@mac-c02q2cd8g8wp.local"
+        }
+      },
+      "reservation-id": "r-0uz8zfgb",
+      "security-groups": "sg0"
+    },
+    "ec2_userdata": "Content-Type: multipart/mixed; boundary=\"===============4744676403225131867==\"\nMIME-Version: 1.0\n\n--===============4744676403225131867==\nContent-Type: text/cloud-config; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cloud-config\"\n\n\n\n# Capture all subprocess output into a logfile\n# Useful for troubleshooting cloud-init issues\noutput: {all: '| tee -a /var/log/cloud-init-output.log'}\n\n--===============4744676403225131867==\nContent-Type: text/cloud-boothook; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"boothook.sh\"\n\n#!/bin/bash\n\n# FIXME(shadower) this is a workaround for cloud-init 0.6.3 present in Ubuntu\n# 12.04 LTS:\n# https://bugs.launchpad.net/heat/+bug/1257410\n#\n# The old cloud-init doesn't create the users directly so the commands to do\n# this are injected though nova_utils.py.\n#\n# Once we drop support for 0.6.3, we can safely remove this.\n\n\n# in case heat-cfntools has been installed from package but no symlinks\n# are yet in /opt/aws/bin/\ncfn-create-aws-symlinks\n\n# Do not remove - the cloud boothook should always return success\nexit 0\n\n--===============4744676403225131867==\nContent-Type: text/part-handler; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"part-handler.py\"\n\n# part-handler\n#\n#    Licensed under the Apache License, Version 2.0 (the \"License\"); you may\n#    not use this file except in compliance with the License. You may obtain\n#    a copy of the License at\n#\n#         http://www.apache.org/licenses/LICENSE-2.0\n#\n#    Unless required by applicable law or agreed to in writing, software\n#    distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\n#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\n#    License for the specific language governing permissions and limitations\n#    under the License.\n\nimport datetime\nimport errno\nimport os\nimport sys\n\n\ndef list_types():\n    return([\"text/x-cfninitdata\"])\n\n\ndef handle_part(data, ctype, filename, payload):\n    if ctype == \"__begin__\":\n        try:\n            os.makedirs('/var/lib/heat-cfntools', int(\"700\", 8))\n        except OSError:\n            ex_type, e, tb = sys.exc_info()\n            if e.errno != errno.EEXIST:\n                raise\n        return\n\n    if ctype == \"__end__\":\n        return\n\n    timestamp = datetime.datetime.now()\n    with open('/var/log/part-handler.log', 'a') as log:\n        log.write('%s filename:%s, ctype:%s\\n' % (timestamp, filename, ctype))\n\n    if ctype == 'text/x-cfninitdata':\n        with open('/var/lib/heat-cfntools/%s' % filename, 'w') as f:\n            f.write(payload)\n\n        # TODO(sdake) hopefully temporary until users move to heat-cfntools-1.3\n        with open('/var/lib/cloud/data/%s' % filename, 'w') as f:\n            f.write(payload)\n\n--===============4744676403225131867==\nContent-Type: text/x-cfninitdata; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cfn-userdata\"\n\n#!/bin/bash\necho 192.168.0.83 master.inf.puppet.vm >> /etc/hosts\nhostname $(curl http://169.254.169.254/latest/meta-data/local-hostname)\necho $(curl -s http://169.254.169.254/latest/meta-data/local-ipv4) $(hostname) >> /etc/hosts\n\n# Give master services a chance to fire up\nsleep 120\n\ncurl -k https://master.inf.puppet.vm:8140/packages/current/install.bash | bash\n\n--===============4744676403225131867==\nContent-Type: text/x-shellscript; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"loguserdata.py\"\n\n#!/usr/bin/env python\n#\n#    Licensed under the Apache License, Version 2.0 (the \"License\"); you may\n#    not use this file except in compliance with the License. You may obtain\n#    a copy of the License at\n#\n#         http://www.apache.org/licenses/LICENSE-2.0\n#\n#    Unless required by applicable law or agreed to in writing, software\n#    distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\n#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\n#    License for the specific language governing permissions and limitations\n#    under the License.\n\nimport datetime\nfrom distutils import version\nimport errno\nimport logging\nimport os\nimport re\nimport subprocess\nimport sys\n\nimport pkg_resources\n\n\nVAR_PATH = '/var/lib/heat-cfntools'\nLOG = logging.getLogger('heat-provision')\n\n\ndef chk_ci_version():\n    try:\n        v = version.LooseVersion(\n            pkg_resources.get_distribution('cloud-init').version)\n        return v >= version.LooseVersion('0.6.0')\n    except Exception:\n        pass\n    data = subprocess.Popen(['cloud-init', '--version'],\n                            stdout=subprocess.PIPE,\n                            stderr=subprocess.PIPE).communicate()\n    if data[0]:\n        raise Exception()\n    # data[1] has such format: 'cloud-init 0.7.5\\n', need to parse version\n    v = re.split(' |\\n', data[1])[1].split('.')\n    return tuple(v) >= tuple(['0', '6', '0'])\n\n\ndef init_logging():\n    LOG.setLevel(logging.INFO)\n    LOG.addHandler(logging.StreamHandler())\n    fh = logging.FileHandler(\"/var/log/heat-provision.log\")\n    os.chmod(fh.baseFilename, int(\"600\", 8))\n    LOG.addHandler(fh)\n\n\ndef call(args):\n\n    class LogStream(object):\n\n        def write(self, data):\n            LOG.info(data)\n\n    LOG.info('%s\\n', ' '.join(args))  # noqa\n    try:\n        ls = LogStream()\n        p = subprocess.Popen(args, stdout=subprocess.PIPE,\n                             stderr=subprocess.PIPE)\n        data = p.communicate()\n        if data:\n            for x in data:\n                ls.write(x)\n    except OSError:\n        ex_type, ex, tb = sys.exc_info()\n        if ex.errno == errno.ENOEXEC:\n            LOG.error('Userdata empty or not executable: %s', ex)\n            return os.EX_OK\n        else:\n            LOG.error('OS error running userdata: %s', ex)\n            return os.EX_OSERR\n    except Exception:\n        ex_type, ex, tb = sys.exc_info()\n        LOG.error('Unknown error running userdata: %s', ex)\n        return os.EX_SOFTWARE\n    return p.returncode\n\n\ndef main():\n\n    try:\n        if not chk_ci_version():\n            # pre 0.6.0 - user data executed via cloudinit, not this helper\n            LOG.error('Unable to log provisioning, need a newer version of '\n                      'cloud-init')\n            return -1\n    except Exception:\n        LOG.warning('Can not determine the version of cloud-init. It is '\n                    'possible to get errors while logging provisioning.')\n\n    userdata_path = os.path.join(VAR_PATH, 'cfn-userdata')\n    os.chmod(userdata_path, int(\"700\", 8))\n\n    LOG.info('Provision began: %s', datetime.datetime.now())\n    returncode = call([userdata_path])\n    LOG.info('Provision done: %s', datetime.datetime.now())\n    if returncode:\n        return returncode\n\n\nif __name__ == '__main__':\n    init_logging()\n\n    code = main()\n    if code:\n        LOG.error('Provision failed with exit code %s', code)\n        sys.exit(code)\n\n    provision_log = os.path.join(VAR_PATH, 'provision-finished')\n    # touch the file so it is timestamped with when finished\n    with open(provision_log, 'a'):\n        os.utime(provision_log, None)\n\n--===============4744676403225131867==\nContent-Type: text/x-cfninitdata; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cfn-watch-server\"\n\nhttp://127.0.0.1:8003\n--===============4744676403225131867==\nContent-Type: text/x-cfninitdata; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cfn-metadata-server\"\n\nhttp://127.0.0.1:8000/v1/\n--===============4744676403225131867==\nContent-Type: text/x-cfninitdata; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cfn-boto-cfg\"\n\n[Boto]\ndebug = 0\nis_secure = 0\nhttps_validate_certificates = 1\ncfn_region_name = heat\ncfn_region_endpoint = 127.0.0.1\ncloudwatch_region_name = heat\ncloudwatch_region_endpoint = 127.0.0.1\n--===============4744676403225131867==--",
+    "fact_json": "true",
+    "fact_ruby": "True",
+    "fact_yaml": true,
+    "facterversion": "3.11.1",
+    "filesystems": "ext2,ext3,ext4,vfat",
+    "fips_enabled": false,
+    "fqdn": "ubuntu1404b.pdx.puppet.vm",
+    "gid": "root",
+    "hardwareisa": "x86_64",
+    "hardwaremodel": "x86_64",
+    "homedir": "/root",
+    "hostname": "ubuntu1404b",
+    "hypervisors": {
+      "kvm": {
+        "openstack": true
+      }
+    },
+    "id": "root",
+    "identity": {
+      "gid": 0,
+      "group": "root",
+      "privileged": true,
+      "uid": 0,
+      "user": "root"
+    },
+    "interfaces": "eth0,lo",
+    "ip6tables_version": "1.4.21",
+    "ipaddress": "192.168.0.88",
+    "ipaddress6": "fe80::f816:3eff:fec0:787c",
+    "ipaddress6_eth0": "fe80::f816:3eff:fec0:787c",
+    "ipaddress6_lo": "::1",
+    "ipaddress_eth0": "192.168.0.88",
+    "ipaddress_lo": "127.0.0.1",
+    "iptables_version": "1.4.21",
+    "is_pe": false,
+    "is_virtual": true,
+    "java_default_home": ".",
+    "jenkins_plugins": "",
+    "kernel": "Linux",
+    "kernelmajversion": "3.13",
+    "kernelrelease": "3.13.0-76-generic",
+    "kernelversion": "3.13.0",
+    "load_averages": {
+      "15m": 0.05,
+      "1m": 0.0,
+      "5m": 0.01
+    },
+    "lsbdistcodename": "trusty",
+    "lsbdistdescription": "Ubuntu 16.04.3 LTS",
+    "lsbdistid": "Ubuntu",
+    "lsbdistrelease": "16.04",
+    "lsbmajdistrelease": "16.04",
+    "macaddress": "fa:16:3e:c0:78:7c",
+    "macaddress_eth0": "fa:16:3e:c0:78:7c",
+    "manufacturer": "Fedora Project",
+    "memory": {
+      "system": {
+        "available": "1.78 GiB",
+        "available_bytes": 1908264960,
+        "capacity": "9.09%",
+        "total": "1.95 GiB",
+        "total_bytes": 2098995200,
+        "used": "181.89 MiB",
+        "used_bytes": 190730240
+      }
+    },
+    "memoryfree": "1.78 GiB",
+    "memoryfree_mb": 1819.86328125,
+    "memorysize": "1.95 GiB",
+    "memorysize_mb": 2001.7578125,
+    "mountpoints": {
+      "/": {
+        "available": "14.67 GiB",
+        "available_bytes": 15749488640,
+        "capacity": "6.67%",
+        "device": "/dev/vda1",
+        "filesystem": "ext4",
+        "options": [
+          "rw"
+        ],
+        "size": "15.72 GiB",
+        "size_bytes": 16875692032,
+        "used": "1.05 GiB",
+        "used_bytes": 1126203392
+      },
+      "/run": {
+        "available": "199.84 MiB",
+        "available_bytes": 209547264,
+        "capacity": "0.17%",
+        "device": "tmpfs",
+        "filesystem": "tmpfs",
+        "options": [
+          "rw",
+          "noexec",
+          "nosuid",
+          "size=10%",
+          "mode=0755"
+        ],
+        "size": "200.18 MiB",
+        "size_bytes": 209899520,
+        "used": "344.00 KiB",
+        "used_bytes": 352256
+      },
+      "/run/lock": {
+        "available": "5.00 MiB",
+        "available_bytes": 5242880,
+        "capacity": "0%",
+        "device": "none",
+        "filesystem": "tmpfs",
+        "options": [
+          "rw",
+          "noexec",
+          "nosuid",
+          "nodev",
+          "size=5242880"
+        ],
+        "size": "5.00 MiB",
+        "size_bytes": 5242880,
+        "used": "0 bytes",
+        "used_bytes": 0
+      },
+      "/run/shm": {
+        "available": "1000.88 MiB",
+        "available_bytes": 1049497600,
+        "capacity": "0%",
+        "device": "none",
+        "filesystem": "tmpfs",
+        "options": [
+          "rw",
+          "nosuid",
+          "nodev"
+        ],
+        "size": "1000.88 MiB",
+        "size_bytes": 1049497600,
+        "used": "0 bytes",
+        "used_bytes": 0
+      },
+      "/run/user": {
+        "available": "100.00 MiB",
+        "available_bytes": 104857600,
+        "capacity": "0%",
+        "device": "none",
+        "filesystem": "tmpfs",
+        "options": [
+          "rw",
+          "noexec",
+          "nosuid",
+          "nodev",
+          "size=104857600",
+          "mode=0755"
+        ],
+        "size": "100.00 MiB",
+        "size_bytes": 104857600,
+        "used": "0 bytes",
+        "used_bytes": 0
+      },
+      "/sys/fs/cgroup": {
+        "available": "4.00 KiB",
+        "available_bytes": 4096,
+        "capacity": "0%",
+        "device": "none",
+        "filesystem": "tmpfs",
+        "options": [
+          "rw"
+        ],
+        "size": "4.00 KiB",
+        "size_bytes": 4096,
+        "used": "0 bytes",
+        "used_bytes": 0
+      }
+    },
+    "mtu_eth0": 1500,
+    "mtu_lo": 65536,
+    "mysql_server_id": 17047164,
+    "netmask": "255.255.255.0",
+    "netmask6": "ffff:ffff:ffff:ffff::",
+    "netmask6_eth0": "ffff:ffff:ffff:ffff::",
+    "netmask6_lo": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+    "netmask_eth0": "255.255.255.0",
+    "netmask_lo": "255.0.0.0",
+    "network": "192.168.0.0",
+    "network6": "fe80::",
+    "network6_eth0": "fe80::",
+    "network6_lo": "::1",
+    "network_eth0": "192.168.0.0",
+    "network_lo": "127.0.0.0",
+    "networking": {
+      "dhcp": "192.168.0.1",
+      "domain": "pdx.puppet.vm",
+      "fqdn": "ubuntu1404b.pdx.puppet.vm",
+      "hostname": "ubuntu1404b",
+      "interfaces": {
+        "eth0": {
+          "bindings": [
+            {
+              "address": "192.168.0.88",
+              "netmask": "255.255.255.0",
+              "network": "192.168.0.0"
+            }
+          ],
+          "bindings6": [
+            {
+              "address": "fe80::f816:3eff:fec0:787c",
+              "netmask": "ffff:ffff:ffff:ffff::",
+              "network": "fe80::"
+            }
+          ],
+          "dhcp": "192.168.0.1",
+          "ip": "192.168.0.88",
+          "ip6": "fe80::f816:3eff:fec0:787c",
+          "mac": "fa:16:3e:c0:78:7c",
+          "mtu": 1500,
+          "netmask": "255.255.255.0",
+          "netmask6": "ffff:ffff:ffff:ffff::",
+          "network": "192.168.0.0",
+          "network6": "fe80::"
+        },
+        "lo": {
+          "bindings": [
+            {
+              "address": "127.0.0.1",
+              "netmask": "255.0.0.0",
+              "network": "127.0.0.0"
+            }
+          ],
+          "bindings6": [
+            {
+              "address": "::1",
+              "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+              "network": "::1"
+            }
+          ],
+          "ip": "127.0.0.1",
+          "ip6": "::1",
+          "mtu": 65536,
+          "netmask": "255.0.0.0",
+          "netmask6": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+          "network": "127.0.0.0",
+          "network6": "::1"
+        }
+      },
+      "ip": "192.168.0.88",
+      "ip6": "fe80::f816:3eff:fec0:787c",
+      "mac": "fa:16:3e:c0:78:7c",
+      "mtu": 1500,
+      "netmask": "255.255.255.0",
+      "netmask6": "ffff:ffff:ffff:ffff::",
+      "network": "192.168.0.0",
+      "network6": "fe80::",
+      "primary": "eth0"
+    },
+    "operatingsystem": "Ubuntu",
+    "operatingsystemmajrelease": "16.04",
+    "operatingsystemrelease": "16.04",
+    "os": {
+      "architecture": "amd64",
+      "distro": {
+        "codename": "trusty",
+        "description": "Ubuntu 16.04.3 LTS",
+        "id": "Ubuntu",
+        "release": {
+          "full": "16.04",
+          "major": "16.04"
+        }
+      },
+      "family": "Debian",
+      "hardware": "x86_64",
+      "name": "Ubuntu",
+      "release": {
+        "full": "16.04",
+        "major": "16.04"
+      },
+      "selinux": {
+        "enabled": false
+      }
+    },
+    "osfamily": "Debian",
+    "package_provider": "apt",
+    "partitions": {
+      "/dev/vda1": {
+        "filesystem": "ext4",
+        "label": "cloudimg-rootfs",
+        "mount": "/",
+        "size": "16.00 GiB",
+        "size_bytes": 17178820608,
+        "uuid": "b2375dc1-5a59-4075-a75f-671752b616ad"
+      }
+    },
+    "path": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/puppetlabs/bin",
+    "pe_concat_basedir": "/opt/puppetlabs/puppet/cache/pe_concat",
+    "physicalprocessorcount": 2,
+    "platform_symlink_writable": true,
+    "platform_tag": "ubuntu-16.04-amd64",
+    "processor0": "Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz",
+    "processor1": "Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz",
+    "processorcount": 2,
+    "processors": {
+      "count": 2,
+      "isa": "x86_64",
+      "models": [
+        "Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz",
+        "Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz"
+      ],
+      "physicalcount": 2
+    },
+    "productname": "OpenStack Nova",
+    "puppet_environmentpath": "/etc/puppetlabs/code/environments",
+    "puppet_files_dir_present": false,
+    "puppet_inventory_metadata": {
+      "packages": {
+        "collection_enabled": false,
+        "last_collection_time": "0.0s"
+      }
+    },
+    "puppet_server": "master.inf.puppet.vm",
+    "puppet_vardir": "/opt/puppetlabs/puppet/cache",
+    "puppetversion": "5.5.1",
+    "python2_version": "2.7.6",
+    "python3_version": "3.4.3",
+    "python_version": "2.7.6",
+    "root_home": "/root",
+    "ruby": {
+      "platform": "x86_64-linux",
+      "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0",
+      "version": "2.4.4"
+    },
+    "rubyplatform": "x86_64-linux",
+    "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0",
+    "rubyversion": "2.4.4",
+    "selinux": false,
+    "serialnumber": "f86cd51d-fa21-413f-beaa-334f66a8afc9",
+    "service_provider": "upstart",
+    "ssh": {
+      "dsa": {
+        "fingerprints": {
+          "sha1": "SSHFP 2 1 c3b3fef2fdc1963140df598186ffa5febcbf0f83",
+          "sha256": "SSHFP 2 2 e9e559eaf9bf2d34454a9337f90a622921b2182b682a6ec272ac30ff1c80948f"
+        },
+        "key": "AAAAB3NzaC1kc3MAAACBAN+HAzef8sS8rzhoIweqkII5uW/gGzyXuZ0D6EiV+/gGcqu6PIDvmm8/VzuY0TXR2KktFR7m0UXqQVY8wEFqtxzVcxXN7VMeV2KINEsiUqqBtiHC8Rgn0gcyKgNVOtXpKh7Dovh77n8Qflv74V+1LAIJAeK43tM9P3m6TN+tETfLAAAAFQC5NySoStAy/2It16tS7QOmEWQbJwAAAIBUc9Q7QE9STDvDnkmDsymcxwjK4ou/C/YlZNbm7rUSKtS8exQ+ZDoQjwdzqrrbVxGPnqo6wDxmX9PwmYcSNJDK5OydjpUHwzzvInDKgq1+0fM33++j5IhbfT1+7kqqQTF0XsDsB/tk7Tu3QG+vH/OFtMb4lnZKrlibnJcVNc7Q0AAAAIEA0QrG8Hv66WAWLMaNMaOGEokemZFOIgJc4/FpQs7coew//ZMb32ChnyHzQdW7Wg235Ky5kEd+loyEG89guKH6G1TXM2SywK/a4ji8w7i6YIxcJMjnoGzFV2xSdL8graJa0l67IPNrLly+JZ/tmlCAvcD5Mwwk1h4lyx/VUoaw+3M=",
+        "type": "ssh-dss"
+      },
+      "ecdsa": {
+        "fingerprints": {
+          "sha1": "SSHFP 3 1 f1f26007a4856f2c6144d95fef63463303f9fe73",
+          "sha256": "SSHFP 3 2 5caad6d53f68e1950566ff4ea8afa620e59b0e6da3cac8bacc8d7c253df613c6"
+        },
+        "key": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBKDDPbHYRVyCsgyfXCeyD5HTyjr7fTDXDffasVpAiWx8HDwHILnqRE+AcMMeeDkp7ilNR9divaoZAZOSE57c8Y=",
+        "type": "ecdsa-sha2-nistp256"
+      },
+      "ed25519": {
+        "fingerprints": {
+          "sha1": "SSHFP 4 1 27365c501a364ee8852517c7b38e697a36d1cb54",
+          "sha256": "SSHFP 4 2 7076a25967be3379203c7989400fa661e8933413cfdc70f7416bfee1009ed5dd"
+        },
+        "key": "AAAAC3NzaC1lZDI1NTE5AAAAIM1W2KX8VXfdp+EIZfAF9FhKYgpP8zF42bmhFWrw0Qe3",
+        "type": "ssh-ed25519"
+      },
+      "rsa": {
+        "fingerprints": {
+          "sha1": "SSHFP 1 1 3c618780a4f00c41345514a3a8a187d9c223beb0",
+          "sha256": "SSHFP 1 2 624740b5ca6fd6bd6a54efc714a37e5b757970ef16c4719bec2a6b7ca62f4a75"
+        },
+        "key": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDAydBy2l63EslV/3jOLlFfI0dHdJoYHpUjqQeXQS/Ubut/3hx4pjG7hvkPWL+nGd8Bq8+JpUz+C/duznROILoqXuAnKs86DQ+5tHAlho4h7LXAHqxHjHnnDenPfoDziinM8s5gs9nvfRAVnkgPSXgbOZo73rsSGaQgIzaxs3OzGK7Y8kceJksXVknTrkAA8NgsrjUoas/u7yW3p92ldURdEa7EfxHdWLWuAU5PvoCXWHx4628PeTwvqOYGParw6X//UGtBdU4o45beFQKSaUFLDoWJVugWOoReUn6RlE2oYcOnP+18zQDEfumLnPq7NYniDrnSvV0LUWKicVaJG78J",
+        "type": "ssh-rsa"
+      }
+    },
+    "ssh_version": "OpenSSH_6.6.1p1",
+    "ssh_version_numeric": "6.6.1",
+    "sshdsakey": "AAAAB3NzaC1kc3MAAACBAN+HAzef8sS8rzhoIweqkII5uW/gGzyXuZ0D6EiV+/gGcqu6PIDvmm8/VzuY0TXR2KktFR7m0UXqQVY8wEFqtxzVcxXN7VMeV2KINEsiUqqBtiHC8Rgn0gcyKgNVOtXpKh7Dovh77n8Qflv74V+1LAIJAeK43tM9P3m6TN+tETfLAAAAFQC5NySoStAy/2It16tS7QOmEWQbJwAAAIBUc9Q7QE9STDvDnkmDsymcxwjK4ou/C/YlZNbm7rUSKtS8exQ+ZDoQjwdzqrrbVxGPnqo6wDxmX9PwmYcSNJDK5OydjpUHwzzvInDKgq1+0fM33++j5IhbfT1+7kqqQTF0XsDsB/tk7Tu3QG+vH/OFtMb4lnZKrlibnJcVNc7Q0AAAAIEA0QrG8Hv66WAWLMaNMaOGEokemZFOIgJc4/FpQs7coew//ZMb32ChnyHzQdW7Wg235Ky5kEd+loyEG89guKH6G1TXM2SywK/a4ji8w7i6YIxcJMjnoGzFV2xSdL8graJa0l67IPNrLly+JZ/tmlCAvcD5Mwwk1h4lyx/VUoaw+3M=",
+    "sshecdsakey": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBKDDPbHYRVyCsgyfXCeyD5HTyjr7fTDXDffasVpAiWx8HDwHILnqRE+AcMMeeDkp7ilNR9divaoZAZOSE57c8Y=",
+    "sshed25519key": "AAAAC3NzaC1lZDI1NTE5AAAAIM1W2KX8VXfdp+EIZfAF9FhKYgpP8zF42bmhFWrw0Qe3",
+    "sshfp_dsa": "SSHFP 2 1 c3b3fef2fdc1963140df598186ffa5febcbf0f83\nSSHFP 2 2 e9e559eaf9bf2d34454a9337f90a622921b2182b682a6ec272ac30ff1c80948f",
+    "sshfp_ecdsa": "SSHFP 3 1 f1f26007a4856f2c6144d95fef63463303f9fe73\nSSHFP 3 2 5caad6d53f68e1950566ff4ea8afa620e59b0e6da3cac8bacc8d7c253df613c6",
+    "sshfp_ed25519": "SSHFP 4 1 27365c501a364ee8852517c7b38e697a36d1cb54\nSSHFP 4 2 7076a25967be3379203c7989400fa661e8933413cfdc70f7416bfee1009ed5dd",
+    "sshfp_rsa": "SSHFP 1 1 3c618780a4f00c41345514a3a8a187d9c223beb0\nSSHFP 1 2 624740b5ca6fd6bd6a54efc714a37e5b757970ef16c4719bec2a6b7ca62f4a75",
+    "sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDAydBy2l63EslV/3jOLlFfI0dHdJoYHpUjqQeXQS/Ubut/3hx4pjG7hvkPWL+nGd8Bq8+JpUz+C/duznROILoqXuAnKs86DQ+5tHAlho4h7LXAHqxHjHnnDenPfoDziinM8s5gs9nvfRAVnkgPSXgbOZo73rsSGaQgIzaxs3OzGK7Y8kceJksXVknTrkAA8NgsrjUoas/u7yW3p92ldURdEa7EfxHdWLWuAU5PvoCXWHx4628PeTwvqOYGParw6X//UGtBdU4o45beFQKSaUFLDoWJVugWOoReUn6RlE2oYcOnP+18zQDEfumLnPq7NYniDrnSvV0LUWKicVaJG78J",
+    "staging_http_get": "curl",
+    "system_uptime": {
+      "days": 1,
+      "hours": 27,
+      "seconds": 99854,
+      "uptime": "1 day"
+    },
+    "systemd": false,
+    "text_fact": "true",
+    "timezone": "UTC",
+    "uptime": "1 day",
+    "uptime_days": 1,
+    "uptime_hours": 27,
+    "uptime_seconds": 99854,
+    "uuid": "FE05B688-675F-435B-A2E2-F5F732994F3C",
+    "vcsrepo_svn_ver": "",
+    "virtual": "kvm",
+    "windows_java_temp": "\\tmp",
+    "clientcert": "ubuntu1404b.pdx.puppet.vm",
+    "clientversion": "5.5.1",
+    "clientnoop": false
+  },
+  "timestamp": "2018-05-03T20:28:26.798212634+00:00",
+  "expiration": "2018-05-03T20:58:26.798762892+00:00"
+}
