@@ -189,6 +189,7 @@ GEM
 PLATFORMS
   ruby
   x86_64-darwin-15
+  x86_64-darwin-16
 
 DEPENDENCIES
   CFPropertyList
@@ -207,4 +208,4 @@ DEPENDENCIES
   semantic_puppet
 
 BUNDLED WITH
-   1.15.1
+   1.16.1
