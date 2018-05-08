@@ -11,7 +11,7 @@ plan profile::deploy_tomcat (
   # name, version, group
   $details = profile::loaddata('/var/tmp/app.yaml')
 
-  profile::puts("Starting rolling deployment on app servers $app_servers...")
+  profile::puts("Starting rolling deployment on app servers ${app_servers}...")
 
   $app_servers.split(',').each |$a| {
 
@@ -68,5 +68,5 @@ plan profile::deploy_tomcat (
 
   }
 
-  profile::puts("Successfully completed rolling deployment on app servers $app_servers...")
+  profile::puts("Successfully completed rolling deployment on app servers ${app_servers}...")
 }
