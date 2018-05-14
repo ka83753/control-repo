@@ -7,4 +7,4 @@ This is the control-repo used by the Puppet SE team.
 * [Contribute](docs/contribute.md)
 
 ### CHANGES ###
-Commit
+Commit #1
