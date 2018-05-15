@@ -85,6 +85,7 @@ mod 'nexcess-auditd', '2.0.0'
 mod 'jdowning-rbenv', '2.2.0'
 mod 'puppet-windows_env', '2.3.0'
 mod 'camptocamp-systemd', '1.1.0'
+mod 'abuxton-pdk', '0.0.2'
 
 mod 'tse-tse_facts',
   :git => 'https://github.com/puppetlabs/tse-module-tse_facts.git'
