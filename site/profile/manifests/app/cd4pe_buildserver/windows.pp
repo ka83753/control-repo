@@ -1,4 +1,7 @@
-class profile::app::cd4pe_buildserver::windows {
+class profile::app::cd4pe_buildserver::windows (
+  String clientver = '3.66.52'
+)
+  {
   file { 'c:/tmp':
     ensure   => directory,
   }
@@ -73,5 +76,25 @@ class profile::app::cd4pe_buildserver::windows {
 
   exec { 'Add 2.4 as ruby env in uru':
     command  => 'C:\ProgramData\chocolatey\bin\uru.bat admin add C:\Ruby24-x64\bin',
+  }
+
+
+# This part is the hack
+  exec { 'Get Distelli Agent':
+    command  => "wget http://cd4pe.pdx.puppet.vm:8080/download/client/${clientver}/Windows-AMD64 -OutFile c:/tmp/distelli.exe",
+    unless   => "!(test-path -Path 'C:/tmp/distelli.exe')",
+    provider => powershell,
+  }
+
+  file { "c:/tmp/client.ps1":
+    content => template('profile/app/cd4pe_buildserver/client.ps1.erb'),
+    require => Exec['Get Distelli Agent'],
+    notify   => Exec['Prime Distelli Agent'],
+  }
+
+  exec { 'Prime Distelli Agent':
+    command  => 'powershell -Command c:/tmp/client.ps1',
+    provider => powershell,
+    unless => "!(test-path -Path 'C:/Program Files/Distelli/distelli.exe')",
   }
 }
