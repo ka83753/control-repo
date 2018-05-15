@@ -59,6 +59,19 @@ class profile::app::cd4pe_buildserver::windows (
     mergemode => clobber,
   }
 
+  windows_env {'PATH':
+    ensure    => present,
+    variable  => 'PATH',
+    value     => 'PATH=C:\Ruby24-x64\bin;C:\tools\ruby25\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Amazon\cfn-bootstrap\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\bin',
+    mergemode => clobber,
+  }
+
+  file { 'c:/windows/system32/config/systemprofile/config':
+    ensure   => present,
+    content  => template('profile/app/cd4pe_buildserver/config.erb'),
+  }
+
+
   # Download Unleashed Ruby Version manager
   exec { 'uru.0.8.5 installer':
     command  => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
@@ -78,6 +91,9 @@ class profile::app::cd4pe_buildserver::windows (
     command  => 'C:\ProgramData\chocolatey\bin\uru.bat admin add C:\Ruby24-x64\bin',
   }
 
+  package { 'bundler':
+    provider => 'gem',
+  }
 
 # This part is the hack
   exec { 'Get Distelli Agent':
