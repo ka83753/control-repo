@@ -66,11 +66,6 @@ class profile::app::cd4pe_buildserver::windows (
     mergemode => clobber,
   }
 
-  file { 'c:/windows/system32/config/systemprofile/.ssh/config':
-    content  => template('profile/app/cd4pe_buildserver/config.erb'),
-  }
-
-
   # Download Unleashed Ruby Version manager
   exec { 'uru.0.8.5 installer':
     command  => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
@@ -97,7 +92,7 @@ class profile::app::cd4pe_buildserver::windows (
 # This part is the hack
   exec { 'Get Distelli Agent':
     command  => "wget http://cd4pe.pdx.puppet.vm:8080/download/client/${clientver}/Windows-AMD64 -OutFile c:/tmp/distelli.exe",
-    #unless   => "(test-path -Path 'C:/tmp/distelli.exe')",
+    onlyif   => "!(test-path -Path 'C:/tmp/distelli.exe')",
     provider => powershell,
   }
 
@@ -110,6 +105,6 @@ class profile::app::cd4pe_buildserver::windows (
   exec { 'Prime Distelli Agent':
     command  => 'powershell -Command c:/tmp/client.ps1',
     provider => powershell,
-    #unless => "(test-path -Path 'C:/Program Files/Distelli/distelli.exe')",
+    onlyif   => "!(test-path -Path 'C:/Program Files/Distelli/distelli.exe')",
   }
 }
