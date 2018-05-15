@@ -47,4 +47,10 @@ class profile::puppet::master {
       action => accept,
   }
 
+  firewall { '100 allow Code Manager access':
+      dport  => '8170',
+      proto  => tcp,
+      action => accept,
+  }
+
 }
