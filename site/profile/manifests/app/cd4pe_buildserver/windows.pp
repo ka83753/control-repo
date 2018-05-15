@@ -62,11 +62,11 @@ class profile::app::cd4pe_buildserver::windows (
   windows_env {'PATH':
     ensure    => present,
     variable  => 'PATH',
-    value     => 'PATH=C:\Ruby24-x64\bin;C:\tools\ruby25\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Amazon\cfn-bootstrap\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\bin',
+    value     => 'C:\Ruby24-x64\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Amazon\cfn-bootstrap\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\bin',
     mergemode => clobber,
   }
 
-  file { 'c:/windows/system32/config/systemprofile/config/.ssh':
+  file { 'c:/windows/system32/config/systemprofile/config/.ssh/config':
     ensure   => present,
     content  => template('profile/app/cd4pe_buildserver/config.erb'),
   }
