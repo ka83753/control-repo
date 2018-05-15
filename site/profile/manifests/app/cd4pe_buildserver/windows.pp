@@ -1,9 +1,14 @@
 class profile::app::cd4pe_buildserver::windows {
+  file { 'c:/tmp':
+    ensure   => directory,
+  }
+
   file { 'Puppet Development Kit download':
     ensure   => present,
     source   => 'https://puppet-pdk.s3.amazonaws.com/pdk/1.5.0.0/repos/windows/pdk-1.5.0.0-x64.msi',
     path     => 'c:/tmp/pdk-1.5.0.0-x64.msi',
     checksum => 'mtime',
+    require  => File['c:/tmp'],
   }
 
   package { 'Puppet Development Kit':
@@ -28,6 +33,7 @@ class profile::app::cd4pe_buildserver::windows {
     provider  => 'windows',
     install_options => ['/tasks="assocfiles,modpath"', '/silent'],
     require   => Exec['Ruby and DevKit File'],
+    require   => File['c:/tmp'],
   }
 
   # If this cacert isn't placed and used, ruby version managers will croak
@@ -56,6 +62,7 @@ class profile::app::cd4pe_buildserver::windows {
     command  => 'c:\windows\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
     unless   => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
     require  => File['Cacert File'],
+    require  => File['c:/tmp'],
   }
 
   package { 'uru.0.8.5.nupkg':
@@ -64,6 +71,7 @@ class profile::app::cd4pe_buildserver::windows {
     source   => 'c:/tmp',
     require  => Exec['uru.0.8.5 installer'],
     notify   => Exec['Add 2.4 as ruby env in uru'],
+    require  => File['c:/tmp'],
   }
 
   exec { 'Add 2.4 as ruby env in uru':
