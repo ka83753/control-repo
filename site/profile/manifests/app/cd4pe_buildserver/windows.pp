@@ -66,7 +66,7 @@ class profile::app::cd4pe_buildserver::windows (
     mergemode => clobber,
   }
 
-  file { 'c:/windows/system32/config/systemprofile/config/.ssh/config':
+  file { 'c:/windows/system32/config/systemprofile/.ssh/config':
     content  => template('profile/app/cd4pe_buildserver/config.erb'),
   }
 
