@@ -7,6 +7,16 @@ class profile::app::cd4pe (
   require ::profile::platform::baseline
   require ::profile::app::docker
 
+  class{'::ngrok':
+    web_addr => '0.0.0.0:4040',
+  }
+
+  firewall { '100 allow ngrokui access':
+    dport  => [4040],
+    proto  => tcp,
+    action => accept,
+  }
+
   file {'/etc/cd4pe':
     ensure => directory,
     owner  => 'root',
@@ -59,25 +69,44 @@ class profile::app::cd4pe (
 
   }
 
+  $master_server = $::settings::server
+  $master_query = "facts[value]{ name = 'ipaddress' and certname = \'${master_server}\'}"
+  $master_ip = puppetdb_query($master_query)[0]['value']
+
   docker::run {'cd4pe':
-    image     => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
-    ports     => ['8080:8080','8000:8000','7000:7000'],
-    volumes   => ['/var/lib/mysql'],
-    env_file  => [
+    image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
+    extra_parameters => ["--add-host ${master_server}:${master_ip}"],
+    ports            => ['8080:8080','8000:8000','7000:7000'],
+    volumes          => ['/var/lib/mysql'],
+    env_file         => [
       '/etc/cd4pe/env',
       '/etc/cd4pe/secret_key',
     ],
-    links     => [
+    links            => [
       'cd4pe-mysql:db',
       'cd4pe-artifactory:artifactory',
     ],
-    subscribe => [
+    subscribe        => [
       File['/etc/cd4pe/env'],
     ],
-    require   => [
+    require          => [
       Docker::Run['cd4pe-artifactory'],
       Docker::Run['cd4pe-mysql'],
       File['/etc/cd4pe/secret_key'],
     ]
   }
+
+  ngrok::tunnel {'cd4pe-ui':
+    proto   => 'http',
+    addr    => '8080',
+    require => Docker::Run['cd4pe'],
+  }
+
+  ngrok::tunnel {'cd4pe-webhook':
+    proto   => 'http',
+    addr    => '8000',
+    require => Docker::Run['cd4pe'],
+  }
+
+
 }

@@ -51,7 +51,7 @@ mod 'ipcrm/echo', '0.1.3'
 mod 'stahnma/epel', '1.3.0'
 mod 'aristanetworks-eos', '1.5.0'
 mod 'puppet-hiera', '3.3.0'
-
+mod 'gabe-ngrok', '1.0.3'
 mod 'aristanetworks-netdev_stdlib_eos', '1.2.0'
 mod 'WhatsARanjit/node_manager', '0.4.2'
 mod 'cyberious/pget', '1.1.0'
