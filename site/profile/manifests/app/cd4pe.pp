@@ -3,19 +3,10 @@ class profile::app::cd4pe (
   String $db_name = 'cd4pe',
   String $db_user = 'cd4pe',
   String $db_pass = 'cd4pe',
+  Boolean $use_ngrok = true,
 ){
   require ::profile::platform::baseline
   require ::profile::app::docker
-
-  class{'::ngrok':
-    web_addr => '0.0.0.0:4040',
-  }
-
-  firewall { '100 allow ngrokui access':
-    dport  => [4040],
-    proto  => tcp,
-    action => accept,
-  }
 
   file {'/etc/cd4pe':
     ensure => directory,
@@ -96,16 +87,31 @@ class profile::app::cd4pe (
     ]
   }
 
-  ngrok::tunnel {'cd4pe-ui':
-    proto   => 'http',
-    addr    => '8080',
-    require => Docker::Run['cd4pe'],
-  }
+  if $use_ngrok == true {
 
-  ngrok::tunnel {'cd4pe-webhook':
-    proto   => 'http',
-    addr    => '8000',
-    require => Docker::Run['cd4pe'],
+    class{'::ngrok':
+      web_addr => '0.0.0.0:4040',
+    }
+
+    firewall { '100 allow ngrokui access':
+      dport  => [4040],
+      proto  => tcp,
+      action => accept,
+    }
+
+
+    ngrok::tunnel {'cd4pe-ui':
+      proto   => 'http',
+      addr    => '8080',
+      require => Docker::Run['cd4pe'],
+    }
+
+    ngrok::tunnel {'cd4pe-webhook':
+      proto   => 'http',
+      addr    => '8000',
+      require => Docker::Run['cd4pe'],
+    }
+
   }
 
 
