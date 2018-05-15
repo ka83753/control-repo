@@ -33,7 +33,6 @@ class profile::app::cd4pe_buildserver::windows {
     provider  => 'windows',
     install_options => ['/tasks="assocfiles,modpath"', '/silent'],
     require   => Exec['Ruby and DevKit File'],
-    require   => File['c:/tmp'],
   }
 
   # If this cacert isn't placed and used, ruby version managers will croak
@@ -62,7 +61,6 @@ class profile::app::cd4pe_buildserver::windows {
     command  => 'c:\windows\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
     unless   => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
     require  => File['Cacert File'],
-    require  => File['c:/tmp'],
   }
 
   package { 'uru.0.8.5.nupkg':
@@ -71,7 +69,6 @@ class profile::app::cd4pe_buildserver::windows {
     source   => 'c:/tmp',
     require  => Exec['uru.0.8.5 installer'],
     notify   => Exec['Add 2.4 as ruby env in uru'],
-    require  => File['c:/tmp'],
   }
 
   exec { 'Add 2.4 as ruby env in uru':
