@@ -1,5 +1,5 @@
 class profile::app::cd4pe_buildserver::windows (
-  String clientver = '3.66.52'
+  String $clientver = '3.66.52'
 )
   {
   file { 'c:/tmp':
