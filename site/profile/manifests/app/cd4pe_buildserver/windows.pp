@@ -67,7 +67,6 @@ class profile::app::cd4pe_buildserver::windows (
   }
 
   file { 'c:/windows/system32/config/systemprofile/config/.ssh/config':
-    ensure   => file,
     content  => template('profile/app/cd4pe_buildserver/config.erb'),
   }
 
