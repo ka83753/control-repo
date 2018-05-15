@@ -2,7 +2,7 @@ class profile::app::cd4pe_buildserver::linux(
   String $ruby_version = '2.4.4',
 ) {
 
-  if $::osfamily != 'RedHat' or $::osfamily != 'Debian' {
+  unless $::osfamily == 'RedHat' or $::osfamily == 'Debian' {
     fail("Unsupported OS ${::osfamily}")
   }
 
