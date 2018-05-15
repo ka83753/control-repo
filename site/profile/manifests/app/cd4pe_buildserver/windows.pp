@@ -18,7 +18,7 @@ class profile::app::cd4pe_buildserver::windows {
     require => File['Puppet Development Kit download'],
   }
 
-  ensure_packages('git', { ensure => present, provider => 'chocolatey' })
+  ensure_packages(['Wget','git'], { ensure => present, provider => 'chocolatey' })
 
 
   # Install Ruby 2.4.1 and the devkit - have to use EXEC because puppet doesn't source HTTPS with untrusted CERTS!!!!!!!
