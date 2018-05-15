@@ -23,7 +23,7 @@ class profile::app::cd4pe_buildserver::windows {
 
   # Install Ruby 2.4.1 and the devkit - have to use EXEC because puppet doesn't source HTTPS with untrusted CERTS!!!!!!!
   exec { 'Ruby and DevKit File':
-    command => 'c:\windows\wget.exe https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.4-1/rubyinstaller-devkit-2.4.4-1-x64.exe -O c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe --no-check-certificate',
+    command => 'C:\ProgramData\chocolatey\bin\wget.exe https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.4-1/rubyinstaller-devkit-2.4.4-1-x64.exe -O c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe --no-check-certificate',
     unless  => 'c:\windows\system32\cmd.exe /c type c:\tmp\rubyinstaller-devkit-2.4.4-1-x64.exe',
   }
 
@@ -58,7 +58,7 @@ class profile::app::cd4pe_buildserver::windows {
 
   # Download Unleashed Ruby Version manager
   exec { 'uru.0.8.5 installer':
-    command  => 'c:\windows\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
+    command  => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
     unless   => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
     require  => File['Cacert File'],
   }
