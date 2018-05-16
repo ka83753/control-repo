@@ -31,3 +31,4 @@ puppet_enterprise::profile::orchestrator::java_args:
   Xmx: '64m'
   Xms: '64m'
   'XX:+UseG1GC': ''
+
