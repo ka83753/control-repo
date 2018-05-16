@@ -54,15 +54,16 @@ class profile::app::cd4pe (
     ensure => present,
   }
 
-  docker::run {'gitlab':
-    image   => 'gitlab/gitlab-ce:latest',
-    ports   => ['443:443','80:80','2222:22'],
-    volumes => [
+  docker::run {'gitlab.pdx.puppet.vm':
+    image    => 'gitlab/gitlab-ce:latest',
+    hostname => 'gitlab.pdx.puppet.vm'
+    ports    => ['443:443','80:80','2222:22'],
+    volumes  => [
       'gitlab-config:/etc/gitlab',
       'gitlab-var:/var/log/gitlab',
       'gitlab-data:/var/opt/gitlab',
     ],
-    net     => 'cd4pe',
+    net      => 'cd4pe',
   }
 
   docker::run {'artifactory':
@@ -85,7 +86,7 @@ class profile::app::cd4pe (
   $master_query = "facts[value]{ name = 'ipaddress' and certname = \'${master_server}\'}"
   $master_ip = puppetdb_query($master_query)[0]['value']
 
-  docker::run {'cd4pe':
+  docker::run {'cd4pe.pdx.puppet.vm':
     image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
     ports            => ['8080:8080','8000:8000','7000:7000'],
@@ -101,7 +102,7 @@ class profile::app::cd4pe (
     require          => [
       Docker::Run['artifactory'],
       Docker::Run['db'],
-      Docker::Run['gitlab'],
+      Docker::Run['gitlab.pdx.puppet.vm'],
       File['/etc/cd4pe/secret_key'],
     ]
   }
