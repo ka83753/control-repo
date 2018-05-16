@@ -85,7 +85,7 @@ class profile::app::cd4pe (
   $master_query = "facts[value]{ name = 'ipaddress' and certname = \'${master_server}\'}"
   $master_ip = puppetdb_query($master_query)[0]['value']
 
-  docker::run {'cd4pe':
+  docker::run {'cd4pe.pdx.puppet.vm':
     image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
     ports            => ['8080:8080','8000:8000','7000:7000'],
