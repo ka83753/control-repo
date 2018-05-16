@@ -17,6 +17,12 @@ class profile::puppet::master {
     action => accept,
   }
 
+  firewall { '100 allow PuppetDB master access':
+    dport  => '8081',
+    proto  => tcp,
+    action => accept,
+  }
+
   firewall { '100 allow Puppet orch access':
     dport  => '8142',
     proto  => tcp,
