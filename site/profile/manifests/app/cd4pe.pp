@@ -3,7 +3,6 @@ class profile::app::cd4pe (
   String $db_name = 'cd4pe',
   String $db_user = 'cd4pe',
   String $db_pass = 'cd4pe',
-  Boolean $use_ngrok = true,
 ){
   require ::profile::platform::baseline
   require ::profile::app::docker
@@ -44,6 +43,22 @@ class profile::app::cd4pe (
     content => epp('profile/app/cd4pe.mysql_env.epp', $data),
   }
 
+  file {'/etc/cd4pe/gitlab_env':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    content => epp('profile/app/gitlab.env.epp', { fqdn => $::fqdn }),
+  }
+
+  docker::run {'gitlab-ce':
+    image   => 'gitlab/gitlab-ce:latest',
+    ports   => ['443:443','80:80','2222:22'],
+    volumes => [
+      'gitlab-config:/etc/gitlab',
+      'gitlab-var:/var/log/gitlab',
+      'gitlab-data:/var/opt/gitlab',
+    ],
+  }
 
   docker::run {'cd4pe-artifactory':
     image   => 'docker.bintray.io/jfrog/artifactory-oss:5.8.3',
@@ -57,7 +72,6 @@ class profile::app::cd4pe (
     volumes   => ['cd4pe-mysql:/var/lib/mysql'],
     env_file  => ['/etc/cd4pe/mysql_env'],
     subscribe => File['/etc/cd4pe/mysql_env'],
-
   }
 
   $master_server = $::settings::server
@@ -67,7 +81,7 @@ class profile::app::cd4pe (
   docker::run {'cd4pe':
     image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
-    ports            => ['8080:8080','8000:8000','7000:7000'],
+    ports            => ['8880:8080','8000:8000','7000:7000'],
     volumes          => ['/var/lib/mysql'],
     env_file         => [
       '/etc/cd4pe/env',
@@ -76,6 +90,7 @@ class profile::app::cd4pe (
     links            => [
       'cd4pe-mysql:db',
       'cd4pe-artifactory:artifactory',
+      'gitlab-ce:gitlab',
     ],
     subscribe        => [
       File['/etc/cd4pe/env'],
@@ -83,36 +98,9 @@ class profile::app::cd4pe (
     require          => [
       Docker::Run['cd4pe-artifactory'],
       Docker::Run['cd4pe-mysql'],
+      Docker::Run['gitlab-ce'],
       File['/etc/cd4pe/secret_key'],
     ]
   }
-
-  if $use_ngrok == true {
-
-    class{'::ngrok':
-      web_addr => '0.0.0.0:4040',
-    }
-
-    firewall { '100 allow ngrokui access':
-      dport  => [4040],
-      proto  => tcp,
-      action => accept,
-    }
-
-
-    ngrok::tunnel {'cd4pe-ui':
-      proto   => 'http',
-      addr    => '8080',
-      require => Docker::Run['cd4pe'],
-    }
-
-    ngrok::tunnel {'cd4pe-webhook':
-      proto   => 'http',
-      addr    => '8000',
-      require => Docker::Run['cd4pe'],
-    }
-
-  }
-
 
 }
