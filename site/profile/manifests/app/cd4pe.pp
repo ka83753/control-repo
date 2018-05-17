@@ -91,7 +91,6 @@ class profile::app::cd4pe (
     image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
     ports            => ['8080:8080','8000:8000','7000:7000'],
-    volumes          => ['/var/lib/mysql'],
     env_file         => [
       '/etc/cd4pe/env',
       '/etc/cd4pe/secret_key',
