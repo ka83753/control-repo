@@ -19,4 +19,29 @@ class profile::app::cd4pe_buildserver::linux(
   rbenv::plugin { 'rbenv/ruby-build': }
   rbenv::build { $ruby_version: global    => true }
 
+
+  # Create the user for distelli
+  user {'distelli':
+    ensure     => 'present',
+    managehome => true,
+  }
+
+  file {'/home/distelli/.ssh':
+    ensure  => directory,
+    owner   => 'distelli',
+    group   => 'distelli',
+    mode    => '0700',
+    require => User['distelli'],
+  }
+
+  file {'/home/distelli/.ssh/config':
+    ensure  => present,
+    owner   => 'distelli',
+    group   => 'distelli',
+    mode    => '0600',
+    source  => 'puppet:///modules/profile/app/cd4pe_buildserver/distelli.ssh.config',
+    require => User['distelli'],
+  }
+
+
 }

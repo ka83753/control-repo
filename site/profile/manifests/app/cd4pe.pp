@@ -59,6 +59,15 @@ class profile::app::cd4pe (
     ensure => present,
   }
 
+  # Hacktastic!  This is specific to the fact we are running on limited
+  # servers in the HOL environment, this makes sure we can see the container
+  # running gitlab
+  host { 'gitlab.pdx.puppet.vm':
+    ensure       => 'present',
+    ip           => '127.0.0.1',
+    host_aliases => 'gitlab',
+  }
+
   docker::run {'gitlab.pdx.puppet.vm':
     hostname         => 'gitlab.pdx.puppet.vm',
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
