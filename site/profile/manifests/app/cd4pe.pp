@@ -50,21 +50,36 @@ class profile::app::cd4pe (
     content => epp('profile/app/gitlab.env.epp', { fqdn => $::fqdn }),
   }
 
+  # TODO: Make this query work for non-vagrant machines; today only vagrant will work
+  $master_server = $::settings::server
+  $master_query = "facts[value]{ name = 'ipaddress_enp0s8' and certname = \'${master_server}\'}"
+  $master_ip = puppetdb_query($master_query)[0]['value']
+
   docker_network {'cd4pe':
     ensure => present,
   }
 
+  # Hacktastic!  This is specific to the fact we are running on limited
+  # servers in the HOL environment, this makes sure we can see the container
+  # running gitlab
+  host { 'gitlab.pdx.puppet.vm':
+    ensure       => 'present',
+    ip           => '127.0.0.1',
+    host_aliases => 'gitlab',
+  }
+
   docker::run {'gitlab.pdx.puppet.vm':
-    hostname => 'gitlab.pdx.puppet.vm',
-    image    => 'gitlab/gitlab-ce:latest',
-    ports    => ['443:443','80:80','2222:22'],
-    volumes  => [
+    hostname         => 'gitlab.pdx.puppet.vm',
+    extra_parameters => ["--add-host ${master_server}:${master_ip}"],
+    image            => 'gitlab/gitlab-ce:latest',
+    ports            => ['443:443','80:80','2222:22'],
+    volumes          => [
       'gitlab-config:/etc/gitlab',
       'gitlab-var:/var/log/gitlab',
       'gitlab-data:/var/opt/gitlab',
     ],
-    net      => 'cd4pe',
-    env_file => ['/etc/cd4pe/gitlab_env'],
+    net              => 'cd4pe',
+    env_file         => ['/etc/cd4pe/gitlab_env'],
   }
 
   docker::run {'artifactory':
@@ -82,10 +97,6 @@ class profile::app::cd4pe (
     env_file  => ['/etc/cd4pe/mysql_env'],
     subscribe => File['/etc/cd4pe/mysql_env'],
   }
-
-  $master_server = $::settings::server
-  $master_query = "facts[value]{ name = 'ipaddress_enp0s8' and certname = \'${master_server}\'}"
-  $master_ip = puppetdb_query($master_query)[0]['value']
 
   docker::run {$::fqdn:
     image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
