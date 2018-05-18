@@ -15,10 +15,6 @@ class profile::app::cd4pe_buildserver::linux(
 
   ensure_packages($dev_packages,{ensure => present})
 
-  include ::rbenv
-  rbenv::plugin { 'rbenv/ruby-build': }
-  rbenv::build { $ruby_version: global    => true }
-
 
   # Create the user for distelli
   user {'distelli':
@@ -43,5 +39,15 @@ class profile::app::cd4pe_buildserver::linux(
     require => User['distelli'],
   }
 
+  class{'::rbenv':
+    owner       => 'distelli',
+    install_dir => '/distelli/rbenv',
+    require     => [
+      User['distelli'],
+    ]
+  }
+
+  rbenv::plugin { 'rbenv/ruby-build': }
+  rbenv::build { $ruby_version: global => false }
 
 }
