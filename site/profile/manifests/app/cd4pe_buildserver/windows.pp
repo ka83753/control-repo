@@ -107,4 +107,13 @@ class profile::app::cd4pe_buildserver::windows (
     provider => powershell,
     onlyif   => "!(test-path -Path 'C:/Program Files/Distelli/distelli.exe')",
   }
+
+  # This is a shim so that the buildserver can talk to the local gitlab container
+  file { 'C:/Windows/System32/config/systemprofile/.ssh/config':
+    ensure  => present,
+    owner   => 'Administrator',
+    group   => 'Administrators',
+    mode    => '0770',
+    source  => 'puppet:///modules/profile/app/cd4pe_buildserver/distelli.ssh.config',
+  }
 }
