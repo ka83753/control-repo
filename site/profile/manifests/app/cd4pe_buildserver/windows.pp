@@ -68,10 +68,10 @@ class profile::app::cd4pe_buildserver::windows (
 
   # Download Unleashed Ruby Version manager
   exec { 'uru.0.8.5 installer':
-    command  => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
-    unless   => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
-    require  => File['Cacert File'],
-    notify   => Package['uru.0.8.5.nupkg'],
+    command => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
+    unless  => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
+    require => File['Cacert File'],
+    notify  => Package['uru.0.8.5.nupkg'],
   }
 
   package { 'uru.0.8.5.nupkg':
