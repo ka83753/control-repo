@@ -17,7 +17,7 @@ node_group { 'PE Master':
     }
   },
   environment          => 'production',
-  override_environment => 'false',
+  override_environment => false,
   parent               => 'PE Infrastructure',
   rule                 => ['or',
   ['=', 'name', 'master.inf.puppet.vm']],

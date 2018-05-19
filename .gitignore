@@ -1,3 +1,4 @@
+.idea
 hieradata/nodes/example-puppet-master.yaml
 /modules
 /build
