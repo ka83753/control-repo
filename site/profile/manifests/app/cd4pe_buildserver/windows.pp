@@ -68,9 +68,10 @@ class profile::app::cd4pe_buildserver::windows (
 
   # Download Unleashed Ruby Version manager
   exec { 'uru.0.8.5 installer':
-    command => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
-    unless  => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
-    require => File['Cacert File'],
+    command  => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
+    unless   => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
+    require  => File['Cacert File'],
+    notify   => Package['uru.0.8.5.nupkg'],
   }
 
   package { 'uru.0.8.5.nupkg':
@@ -83,10 +84,6 @@ class profile::app::cd4pe_buildserver::windows (
 
   exec { 'Add 2.4 as ruby env in uru':
     command => 'C:\ProgramData\chocolatey\bin\uru.bat admin add C:\Ruby24-x64\bin',
-  }
-
-  package { 'bundler':
-    provider => 'gem',
   }
 
 # This part is the hack
@@ -108,13 +105,22 @@ class profile::app::cd4pe_buildserver::windows (
     onlyif   => "!(test-path -Path 'C:/Program Files/Distelli/distelli.exe')",
   }
 
-  # This is a shim so that the buildserver can talk to the local gitlab container
+
+# This is a shim so that the buildserver can talk to the local gitlab container
+  file { 'C:/Windows/System32/config/systemprofile/.ssh':
+    ensure  => directory,
+    owner   => 'Administrator',
+    group   => 'Administrators',
+    mode    => '0770',
+  }
+
   file { 'C:/Windows/System32/config/systemprofile/.ssh/config':
-    ensure => present,
-    owner  => 'Administrator',
-    group  => 'Administrators',
-    mode   => '0770',
-    source => 'puppet:///modules/profile/app/cd4pe_buildserver/distelli.ssh.config',
+    ensure  => present,
+    owner   => 'Administrator',
+    group   => 'Administrators',
+    mode    => '0770',
+    source  => 'puppet:///modules/profile/app/cd4pe_buildserver/distelli.ssh.config',
+    require => File['C:/Windows/System32/config/systemprofile/.ssh'],
   }
 }
 
