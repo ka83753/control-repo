@@ -18,7 +18,7 @@ class profile::app::cd4pe_buildserver::windows (
     ensure   => present,
     source   => 'c:/tmp/pdk-1.5.0.0-x64.msi',
     provider => 'windows',
-    require => File['Puppet Development Kit download'],
+    require  => File['Puppet Development Kit download'],
   }
 
   ensure_packages(['Wget','git'], { ensure => present, provider => 'chocolatey' })
@@ -31,25 +31,25 @@ class profile::app::cd4pe_buildserver::windows (
   }
 
   package { 'Ruby 2.4.4-1-x64 with MSYS2':
-    ensure    => present,
-    source    => 'c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe',
-    provider  => 'windows',
+    ensure          => present,
+    source          => 'c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe',
+    provider        => 'windows',
     install_options => ['/tasks="assocfiles,modpath"', '/silent'],
-    require   => Exec['Ruby and DevKit File'],
+    require         => Exec['Ruby and DevKit File'],
   }
 
   # If this cacert isn't placed and used, ruby version managers will croak
   file { 'C:/cacert':
-    ensure    => directory,
-    group     => 'Administrators',
+    ensure => directory,
+    group  => 'Administrators',
   }
 
   file { 'Cacert File':
-    ensure    => present,
-    source    => 'http://curl.haxx.se/ca/cacert.pem',
-    group     => 'Administrators',
-    path      => 'C:/cacert/cacert.pem',
-    require   => File['C:/cacert'],
+    ensure  => present,
+    source  => 'http://curl.haxx.se/ca/cacert.pem',
+    group   => 'Administrators',
+    path    => 'C:/cacert/cacert.pem',
+    require => File['C:/cacert'],
   }
 
   windows_env {'SSL_CERT_FILE':
@@ -83,7 +83,7 @@ class profile::app::cd4pe_buildserver::windows (
   }
 
   exec { 'Add 2.4 as ruby env in uru':
-    command  => 'C:\ProgramData\chocolatey\bin\uru.bat admin add C:\Ruby24-x64\bin',
+    command => 'C:\ProgramData\chocolatey\bin\uru.bat admin add C:\Ruby24-x64\bin',
   }
 
 # This part is the hack
@@ -93,10 +93,10 @@ class profile::app::cd4pe_buildserver::windows (
     provider => powershell,
   }
 
-  file { "c:/tmp/client.ps1":
+  file { 'c:/tmp/client.ps1':
     content => template('profile/app/cd4pe_buildserver/client.ps1.erb'),
     require => Exec['Get Distelli Agent'],
-    notify   => Exec['Prime Distelli Agent'],
+    notify  => Exec['Prime Distelli Agent'],
   }
 
   exec { 'Prime Distelli Agent':
@@ -123,3 +123,4 @@ class profile::app::cd4pe_buildserver::windows (
     require => File['C:/Windows/System32/config/systemprofile/.ssh'],
   }
 }
+
