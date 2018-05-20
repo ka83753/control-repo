@@ -10,14 +10,18 @@ node_group { 'PE Master':
     'pe_repo::platform::el_7_x86_64'     => {},
     'pe_repo::platform::windows_x86_64'  => {},
     'puppet_enterprise::profile::master' => {
-      'code_manager_auto_configure' => true,
+      # lint:ignore:quoted_booleans
+      'code_manager_auto_configure' => 'true',
+      # lint:endignore
       'r10k_private_key'            => '/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa',
       'r10k_remote'                 => $::new_repo,
-      'replication_mode'            => 'none'
-    }
+      'replication_mode'            => 'none',
+    },
   },
   environment          => 'production',
-  override_environment => false,
+  # lint:ignore:quoted_booleans
+  override_environment => 'false',
+  # lint:endignore
   parent               => 'PE Infrastructure',
   rule                 => ['or',
   ['=', 'name', 'master.inf.puppet.vm']],
