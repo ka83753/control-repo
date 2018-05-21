@@ -108,10 +108,10 @@ class profile::app::cd4pe_buildserver::windows (
 
 # This is a shim so that the buildserver can talk to the local gitlab container
   file { 'C:/Windows/System32/config/systemprofile/.ssh':
-    ensure  => directory,
-    owner   => 'Administrator',
-    group   => 'Administrators',
-    mode    => '0770',
+    ensure => directory,
+    owner  => 'Administrator',
+    group  => 'Administrators',
+    mode   => '0770',
   }
 
   file { 'C:/Windows/System32/config/systemprofile/.ssh/config':
