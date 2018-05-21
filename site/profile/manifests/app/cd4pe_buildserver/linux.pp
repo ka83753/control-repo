@@ -22,6 +22,14 @@ class profile::app::cd4pe_buildserver::linux(
     managehome => true,
   }
 
+  file {'/distelli/':
+    ensure  => directory,
+    owner   => 'distelli',
+    group   => 'distelli',
+    mode    => '0755',
+    require => User['distelli'],
+  }
+
   file {'/home/distelli/.ssh':
     ensure  => directory,
     owner   => 'distelli',
@@ -44,6 +52,7 @@ class profile::app::cd4pe_buildserver::linux(
     install_dir => '/distelli/rbenv',
     require     => [
       User['distelli'],
+      File['/distelli'],
     ]
   }
 
