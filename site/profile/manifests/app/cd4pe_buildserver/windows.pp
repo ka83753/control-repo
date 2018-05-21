@@ -34,7 +34,7 @@ class profile::app::cd4pe_buildserver::windows (
     ensure          => present,
     source          => 'c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe',
     provider        => 'windows',
-    install_options => ['/tasks="assocfiles,modpath"', '/silent'],
+    install_options => ['/tasks="assocfiles,modpath"', '/VERYSILENT'],
     require         => Exec['Ruby and DevKit File'],
   }
 
