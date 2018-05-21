@@ -10,9 +10,7 @@ node_group { 'PE Master':
     'pe_repo::platform::el_7_x86_64'     => {},
     'pe_repo::platform::windows_x86_64'  => {},
     'puppet_enterprise::profile::master' => {
-      # lint:ignore:quoted_booleans
-      'code_manager_auto_configure' => 'true',
-      # lint:endignore
+      'code_manager_auto_configure' => true,
       'r10k_private_key'            => '/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa',
       'r10k_remote'                 => $::new_repo,
       'replication_mode'            => 'none',
