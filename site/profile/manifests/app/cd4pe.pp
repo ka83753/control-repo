@@ -1,5 +1,5 @@
 class profile::app::cd4pe (
-  String $cd4pe_version = '393411',
+  String $cd4pe_version = '397148',
   String $db_name = 'cd4pe',
   String $db_user = 'cd4pe',
   String $db_pass = 'cd4pe',
