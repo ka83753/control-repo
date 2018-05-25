@@ -7,6 +7,7 @@ end
 
 gem 'puppet'
 gem 'puppetlabs_spec_helper'
+gem 'json', '2.0.4'
 gem 'semantic_puppet'
 gem 'ra10ke'
 gem 'rubocop'
