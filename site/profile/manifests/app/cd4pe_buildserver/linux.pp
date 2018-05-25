@@ -1,3 +1,4 @@
+# This class installs the necessary components to become a Distelli Buildserver
 class profile::app::cd4pe_buildserver::linux(
   String $ruby_version = '2.4.4',
 ) {
@@ -47,16 +48,8 @@ class profile::app::cd4pe_buildserver::linux(
     require => User['distelli'],
   }
 
-  class{'::rbenv':
-    owner       => 'distelli',
-    install_dir => '/distelli/rbenv',
-    require     => [
-      User['distelli'],
-      File['/distelli'],
-    ]
+  file { '/etc/profile.d/pdkrubypath.sh':
+        mode    => '0644',
+        content => 'PATH=$PATH:/opt/puppetlabs/pdk/private/ruby/2.4.4/bin',
   }
-
-  rbenv::plugin { 'rbenv/ruby-build': }
-  rbenv::build { $ruby_version: global => false }
-
 }

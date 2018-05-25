@@ -1,3 +1,4 @@
+# This class installs the necessary components to become a Distelli Buildserver
 class profile::app::cd4pe_buildserver::windows
   {
   file { 'c:/tmp':
@@ -20,21 +21,6 @@ class profile::app::cd4pe_buildserver::windows
   }
 
   ensure_packages(['Wget','git'], { ensure => present, provider => 'chocolatey' })
-
-
-  # Install Ruby 2.4.1 and the devkit - have to use EXEC because puppet doesn't source HTTPS with untrusted CERTS!!!!!!!
-  exec { 'Ruby and DevKit File':
-    command => 'C:\ProgramData\chocolatey\bin\wget.exe https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.4-1/rubyinstaller-devkit-2.4.4-1-x64.exe -O c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe --no-check-certificate',
-    unless  => 'c:\windows\system32\cmd.exe /c type c:\tmp\rubyinstaller-devkit-2.4.4-1-x64.exe',
-  }
-
-  package { 'Ruby 2.4.4-1-x64 with MSYS2':
-    ensure          => present,
-    source          => 'c:/tmp/rubyinstaller-devkit-2.4.4-1-x64.exe',
-    provider        => 'windows',
-    install_options => ['/tasks="assocfiles,modpath"', '/VERYSILENT'],
-    require         => Exec['Ruby and DevKit File'],
-  }
 
   # If this cacert isn't placed and used, ruby version managers will croak
   file { 'C:/cacert':
@@ -60,28 +46,8 @@ class profile::app::cd4pe_buildserver::windows
   windows_env {'PATH':
     ensure    => present,
     variable  => 'PATH',
-    value     => 'C:\Ruby24-x64\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Amazon\cfn-bootstrap\;C:\ProgramData\chocolatey\bin;C:\Program Files\Puppet Labs\Puppet\bin;C:\Program Files\Git\bin',
+    value     => 'C:\Program Files\Puppet Labs\DevelopmentKit\private\ruby\2.4.4\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Amazon\cfn-bootstrap\;C:\ProgramData\chocolatey\bin;C:\Program Files\Puppet Labs\Puppet\bin;C:\Program Files\Git\bin',
     mergemode => clobber,
-  }
-
-  # Download Unleashed Ruby Version manager
-  exec { 'uru.0.8.5 installer':
-    command => 'C:\ProgramData\chocolatey\bin\wget.exe https://bitbucket.org/jonforums/uru/downloads/uru.0.8.5.nupkg -o c:\tmp\uru.0.8.5.nupkg --no-check-certificate',
-    unless  => 'c:\windows\system32\cmd.exe /c type c:\tmp\uru.0.8.5.nupkg',
-    require => File['Cacert File'],
-    notify  => Package['uru.0.8.5.nupkg'],
-  }
-
-  package { 'uru.0.8.5.nupkg':
-    ensure   => present,
-    provider => 'chocolatey',
-    source   => 'c:/tmp',
-    require  => Exec['uru.0.8.5 installer'],
-    notify   => Exec['Add 2.4 as ruby env in uru'],
-  }
-
-  exec { 'Add 2.4 as ruby env in uru':
-    command => 'C:\ProgramData\chocolatey\bin\uru.bat admin add C:\Ruby24-x64\bin',
   }
 
 # This is a shim so that the buildserver can talk to the local gitlab container
