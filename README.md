@@ -3,7 +3,7 @@ Control-Repo for CD4PE Hands on Lab
 
 ## Why is this needed?
 
-There is a bit of divergence in this control-repo from the standard [Control-Repo](https://github.com/puppetlabs/control-repo)
+There is a bit of divergence in this control-repo from the standard [Control-Repo](https://github.com/puppetlabs-seteam/control-repo)
 
 There are a few reasons for this: 
 1. CD4PE is currently private
