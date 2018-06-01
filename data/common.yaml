@@ -5,7 +5,7 @@ puppet_enterprise::profile::puppetdb::listen_address: '0.0.0.0'
 puppet_enterprise::profile::amq::broker::heap_mb: '256'
 puppet_enterprise::profile::master::java_args:
   Xms: '512m'
-  Xmx: '1024m'
+  Xmx: '512m'
 puppet_enterprise::profile::puppetdb::java_args:
   Xms: '128m'
   Xmx: '384m'
