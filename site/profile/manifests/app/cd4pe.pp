@@ -1,9 +1,10 @@
 #This class configures the CD4PE vm to host several container microservices
 class profile::app::cd4pe (
   Variant[Enum['latest'], Integer] $cd4pe_version = 'latest',
-  String $db_name = 'cd4pe',
-  String $db_user = 'cd4pe',
-  String $db_pass = 'cd4pe',
+  String $db_name     = 'cd4pe',
+  String $db_user     = 'cd4pe',
+  String $db_pass     = 'cd4pe',
+  String $cd4pe_image = 'puppet/continuous-delivery-for-puppet-enterprise',
 ){
   require ::profile::platform::baseline
   require ::profile::app::docker
@@ -16,9 +17,9 @@ class profile::app::cd4pe (
   }
 
   $data = {
-    db_name    => $db_name,
-    db_user    => $db_user,
-    db_pass    => $db_pass,
+    db_name => $db_name,
+    db_user => $db_user,
+    db_pass => $db_pass,
   }
 
   file {'/etc/cd4pe/env':
@@ -100,7 +101,7 @@ class profile::app::cd4pe (
   }
 
   docker::run {$::fqdn:
-    image            => "pcr-internal.puppet.net/pipelines/pfi:${cd4pe_version}",
+    image            => "${cd4pe_image}:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
     ports            => ['8080:8080','8000:8000','7000:7000'],
     env_file         => [
