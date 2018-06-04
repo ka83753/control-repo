@@ -46,8 +46,9 @@ class profile::app::cd4pe_buildserver::windows
   windows_env {'PATH':
     ensure    => present,
     variable  => 'PATH',
-    value     => 'C:\Program Files\Puppet Labs\DevelopmentKit\private\ruby\2.4.4\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Amazon\cfn-bootstrap\;C:\ProgramData\chocolatey\bin;C:\Program Files\Puppet Labs\Puppet\bin;C:\Program Files\Git\bin',
-    mergemode => clobber,
+    value     => ['C:\Program Files\Puppet Labs\DevelopmentKit\private\ruby\2.4.4\bin', 'C:\Program Files\Amazon\cfn-bootstrap', 'C:\Program Files\Git\bin'],
+    separator => ";",
+    mergemode => prepend,
   }
 
 # This is a shim so that the buildserver can talk to the local gitlab container
