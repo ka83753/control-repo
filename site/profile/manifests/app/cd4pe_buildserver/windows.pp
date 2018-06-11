@@ -47,7 +47,7 @@ class profile::app::cd4pe_buildserver::windows
     ensure    => present,
     variable  => 'PATH',
     value     => ['C:\Program Files\Puppet Labs\DevelopmentKit\private\ruby\2.4.4\bin', 'C:\Program Files\Amazon\cfn-bootstrap', 'C:\Program Files\Git\bin'],
-    separator => ";",
+    separator => ';',
     mergemode => prepend,
   }
 
