@@ -11,7 +11,7 @@ class profile::app::cd4pe_buildserver::hosts {
   host { 'cd4pe.pdx.puppet.vm':
     ensure       => 'present',
     ip           => $cd4pe_ip,
-    host_aliases => 'cd4pe',
+    host_aliases => ['cd4pe', 'gitlab.pdx.puppet.vm', 'gitlab'],
   }
 
 }
