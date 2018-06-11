@@ -6,7 +6,7 @@ class profile::app::cd4pe_buildserver::hosts {
   $cd4pe_query = "facts[value]{ name in ['ipaddress_enp0s8',  'ipaddress_eth0']
     and certname in resources[certname] { type = 'Class' and title = 'Role::Cd4pe' } }"
 
-  $cd4pe_ip = puppetdb_query($master_query)[0]['value']
+  $cd4pe_ip = puppetdb_query($cd4pe_query)[0]['value']
 
   host { 'cd4pe.pdx.puppet.vm':
     ensure       => 'present',
