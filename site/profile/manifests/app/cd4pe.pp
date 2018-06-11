@@ -53,6 +53,7 @@ class profile::app::cd4pe (
   }
 
   # TODO: Make this query work for non-vagrant machines; today only vagrant will work
+  # - updated to work on AWS
   $master_server = $::settings::server
   $master_query = "facts[value]{ name in ['ipaddress_enp0s8',  'ipaddress_eth0']
     and certname = \'${master_server}\'}"
@@ -101,7 +102,8 @@ class profile::app::cd4pe (
     subscribe => File['/etc/cd4pe/mysql_env'],
   }
 
-  docker::run {$::fqdn:
+#  docker::run {$::fqdn:
+  docker::run {'cd4pe.pdx.puppet.vm':
     image            => "${cd4pe_image}:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
     ports            => ['8080:8080','8000:8000','7000:7000'],
