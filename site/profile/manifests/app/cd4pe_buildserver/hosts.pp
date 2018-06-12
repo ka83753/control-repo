@@ -1,4 +1,4 @@
-#
+# Add cd4pe and gitlab IP addresses using puppetdb query
 class profile::app::cd4pe_buildserver::hosts {
 
   $master_server = $::settings::server
