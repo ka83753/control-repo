@@ -102,7 +102,6 @@ class profile::app::cd4pe (
     subscribe => File['/etc/cd4pe/mysql_env'],
   }
 
-#  docker::run {$::fqdn:
   docker::run {'cd4pe.pdx.puppet.vm':
     image            => "${cd4pe_image}:${cd4pe_version}",
     extra_parameters => ["--add-host ${master_server}:${master_ip}"],
