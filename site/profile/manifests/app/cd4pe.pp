@@ -1,6 +1,6 @@
 #This class configures the CD4PE vm to host several container microservices
 class profile::app::cd4pe (
-  Variant[Enum['latest'], Integer] $cd4pe_version = 'latest',
+  Variant[Enum['latest'], String] $cd4pe_version = '1.3.2',
   String $db_name     = 'cd4pe',
   String $db_user     = 'cd4pe',
   String $db_pass     = 'cd4pe',
