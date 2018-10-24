@@ -39,6 +39,12 @@ mod 'puppetlabs-docker', '1.0.1'
 mod 'puppetlabs-transition', '0.1.1'
 mod 'puppetlabs-distelli_agent', '0.1.0'
 
+mod 'puppetlabs-cd4pe', :latest
+# Requirements for cd4pe
+mod 'puppetlabs-concat', '4.2.1'
+mod 'puppetlabs-hocon', '1.0.1'
+mod 'puppetlabs-puppet_authorization', '0.4.0'
+
 # Forge Community Modules
 mod 'rfletcher-jq', '0.0.2'
 mod 'maestrodev-wget', '1.7.3'
