@@ -8,7 +8,7 @@ mod 'puppetlabs-service', '0.1.3'
 mod 'puppetlabs/inifile', '1.6.0'
 mod "puppetlabs/stdlib", '4.25.1'
 mod 'puppetlabs-ciscopuppet', '1.7.0'
-mod "puppetlabs/concat", '4.0.0'
+mod "puppetlabs/concat", '4.2.1'
 mod 'puppetlabs-acl', '2.0.1'
 mod 'puppetlabs/apache', '2.3.0'
 mod 'puppetlabs/aws', '2.0.0'
@@ -41,7 +41,6 @@ mod 'puppetlabs-distelli_agent', '0.1.0'
 
 mod 'puppetlabs-cd4pe', :latest
 # Requirements for cd4pe
-mod 'puppetlabs-concat', '4.2.1'
 mod 'puppetlabs-hocon', '1.0.1'
 mod 'puppetlabs-puppet_authorization', '0.4.0'
 
