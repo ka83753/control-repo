@@ -18,5 +18,3 @@ Any questions, please contact:
 
 * mattc@puppet.com / @mattc
 * jawn@puppet.com  / @jawn
-* 
-Test Update
