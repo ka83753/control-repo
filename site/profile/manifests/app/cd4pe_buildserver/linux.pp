@@ -10,7 +10,7 @@ class profile::app::cd4pe_buildserver::linux(
   include ::pdk
 
   $dev_packages = $::osfamily ? {
-    'RedHat' => ['gcc','gcc-c++','openssl-devel','readline-devel','zlib-devel','cmake'],
+    'RedHat' => ['gcc','gcc-c++','openssl-devel','readline-devel','zlib-devel','cmake','jq','htop'],
     'Debian' => ['build-essential','cmake','libssl-dev','zlib1g-dev','libreadline6-dev'],
   }
 
