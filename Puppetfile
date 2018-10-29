@@ -38,7 +38,6 @@ mod 'puppetlabs-facter_task', '0.1.3'
 mod 'puppetlabs-docker', '1.0.1'
 mod 'puppetlabs-transition', '0.1.1'
 mod 'puppetlabs-distelli_agent', '0.1.0'
-mod 'spynappels-healthcheck_lite', '0.1.0'
 
 mod 'puppetlabs-cd4pe', :latest
 # Requirements for cd4pe
